@@ -1,6 +1,8 @@
+import s from "./homepage.module.css";
+
 function Homepage() {
   return (
-    <div>
+    <div className={s.div}>
       <h1>Home</h1>
     </div>
   );

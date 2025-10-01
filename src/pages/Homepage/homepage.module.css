@@ -1,0 +1,9 @@
+.div {
+  background-color: green;
+  color: white;
+  margin: 0;
+  font-family: Arial, sans-serif;
+
+  width: 1000px;
+  height: 1000px;
+}
