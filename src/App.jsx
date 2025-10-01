@@ -8,7 +8,7 @@ import Product from "./pages/Product/Product";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 /*===============Components===============*/
-import AppLayout from "./components/AppLayout";
+import AppLayout from "./components/AppLayout/AppLayout";
 
 function App() {
   return (
