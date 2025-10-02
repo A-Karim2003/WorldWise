@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 
 /*===============Pages===============*/
 import Homepage from "./pages/Homepage/Homepage";
@@ -10,9 +10,21 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 /*==============Components============*/
 import AppLayout from "./components/AppLayout/AppLayout";
 
+const routeToBgMap = {
+  "/": "homepageBg",
+  "/pricing": "pricingBg",
+  "/product": "productBg",
+  "/login": "loginBg",
+};
+
 function App() {
+  const location = useLocation();
+  const bgClass = routeToBgMap[location.pathname] || "default";
+
+  console.log(bgClass);
+
   return (
-    <div className="app">
+    <div className={`app ${bgClass}`}>
       <Routes>
         <Route element={<AppLayout />}>
           <Route path="/" element={<Homepage />} />

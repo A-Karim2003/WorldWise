@@ -22,7 +22,7 @@ function AppLayout() {
         <Logo />
         <NavLinks />
         <HambugerIcon
-          onClick={setIsOpen}
+          onClick={handleSidebar}
           icon={faBars}
           className={style.hamburger}
         />
