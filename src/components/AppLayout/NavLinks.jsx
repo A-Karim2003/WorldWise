@@ -4,9 +4,6 @@ import { Link } from "react-router-dom";
 function NavLinks() {
   return (
     <nav>
-      <Link className={style.navLink} to="/">
-        Home{" "}
-      </Link>
       <Link className={style.navLink} to="/pricing">
         Pricing{" "}
       </Link>

@@ -1,5 +1,4 @@
 header {
-  border: solid;
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
@@ -20,7 +19,6 @@ header {
 }
 
 nav {
-  border: solid red;
   max-width: 500px;
   width: 100%;
 
@@ -29,6 +27,9 @@ nav {
   justify-content: space-around;
   gap: 2rem;
   margin-right: 2rem;
+
+  position: absolute;
+  z-index: 10;
 }
 
 nav .navLink {
@@ -65,4 +66,16 @@ nav .navLink {
   .hamburger {
     display: flex;
   }
+}
+
+/* --------------SIDEBAR--------------- */
+
+aside {
+  background-color: var(--primary-color);
+  position: absolute;
+  z-index: 10;
+  right: 0;
+  top: 0;
+  width: 20rem;
+  height: 100%;
 }
