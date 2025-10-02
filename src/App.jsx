@@ -7,7 +7,7 @@ import Pricing from "./pages/Pricing/Pricing";
 import Product from "./pages/Product/Product";
 import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
-/*===============Components===============*/
+/*==============Components============*/
 import AppLayout from "./components/AppLayout/AppLayout";
 
 function App() {
