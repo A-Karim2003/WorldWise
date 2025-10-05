@@ -1,0 +1,47 @@
+.loginContainer {
+  height: 33.3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginForm {
+  width: 500px;
+  padding: 4rem;
+  border-radius: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  color: white;
+
+  background-color: #43484d;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  font-size: 2rem;
+}
+
+.formGroup input {
+  height: 4rem;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  background-color: #d1d1d1;
+}
+
+.formGroup input:focus {
+  outline: none;
+  background-color: white;
+}
+
+.loginForm button {
+  align-self: flex-start;
+}
