@@ -70,21 +70,17 @@ main {
 /* ---------page-main-content--------- */
 
 .page-main-content {
-  display: flex;
-  max-width: 980px;
-  height: 400px;
   margin: auto;
-  margin-top: 10rem;
   color: #d8d8d8;
-  gap: 4rem;
-
-  border: solid greenyellow;
+  max-width: 1080px;
+  width: 100%;
+  min-height: 400px;
+  aspect-ratio: 2/1;
+  display: flex;
 }
 
 .page-main-content > div {
-  border: solid red;
   flex: 1;
-  height: 100%;
 }
 
 .page-main-content .content-container {
@@ -107,20 +103,21 @@ main {
   letter-spacing: 0.8px;
   line-height: 2.2rem;
 }
-/* -------------Image section-------- */
-
-.content-img-container {
-  border: solid darkblue 2px;
-}
 
 .content-img-container img {
   height: 100%;
   width: 100%;
   object-fit: cover;
 }
+
 /* Small devices */
 @media (max-width: 767.98px) {
   .page-main-content {
     flex-direction: column;
+    height: 600px;
+  }
+
+  .content-img-container {
+    height: 60%;
   }
 }

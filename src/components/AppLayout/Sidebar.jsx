@@ -6,7 +6,7 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Sidebar({ isOpen, onHandleSidebar }) {
   return (
-    <aside className={isOpen ? style.active : ""}>
+    <aside className={`${style.navSidebar} ${isOpen ? style.active : ""}`}>
       <CloseIcon
         onClick={onHandleSidebar}
         icon={faXmark}

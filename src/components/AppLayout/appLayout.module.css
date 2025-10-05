@@ -2,7 +2,7 @@ header {
   margin: 0 auto;
   max-width: var(--max-width);
   width: 100%;
-  height: 8rem;
+  min-height: 8rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -37,13 +37,15 @@ nav {
 }
 
 .navLink:global(.active) {
-  color: var(--secondary-color);
+  color: var(--primary-color);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
 .hamburger {
   font-size: 2rem;
   cursor: pointer;
   display: none;
+  color: white;
 }
 
 /* Small devices */
@@ -74,7 +76,7 @@ nav {
 
 /* --------------SIDEBAR--------------- */
 
-aside {
+.navSidebar {
   background-color: var(--secondary-color);
   position: absolute;
   z-index: 10;
@@ -88,14 +90,14 @@ aside {
 
 /* --------SIDEBAR-CLOSE-/-OPEN-------- */
 
-aside.active {
+.navSidebar.active {
   width: 20rem;
   padding: 0 2rem;
 }
 
 /* ------------SIDEBAR-NAVS------------ */
 
-aside nav {
+.navSidebar nav {
   flex-direction: column;
   align-items: start;
   margin-top: 8rem;
@@ -110,5 +112,13 @@ aside nav {
 }
 
 .closeIcon:hover {
-  color: var(--secondary-color);
+  color: var(--primary-color);
+}
+
+/* Hide sidebar on expanded screen*/
+
+@media (min-width: 575.98px) {
+  .navSidebar {
+    display: none;
+  }
 }

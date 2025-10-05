@@ -18,6 +18,7 @@ function Pricing() {
             voluptatem iste.
           </p>
         </div>
+
         <Image src={"/public/images/img-2.jpg"} />
       </PageMainContent>
     </div>
