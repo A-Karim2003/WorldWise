@@ -1,5 +1,6 @@
 import styles from "./login.module.css";
 import Button from "../../components/AppLayout/Button";
+import { Link } from "react-router-dom";
 
 function Login() {
   return (
@@ -15,7 +16,9 @@ function Login() {
           <input id="password" type="password" placeholder="Password" />
         </div>
 
-        <Button>Login</Button>
+        <Link to="/worldwise">
+          <Button>Login</Button>
+        </Link>
       </form>
     </section>
   );

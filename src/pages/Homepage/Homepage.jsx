@@ -2,8 +2,6 @@ import styles from "./homepage.module.css";
 import Button from "../../components/AppLayout/Button";
 
 function Homepage() {
-  console.log(styles);
-
   return (
     <div className={styles.homepage}>
       <div className={styles.content}>

@@ -1,0 +1,17 @@
+.worldwiseContainer {
+  flex: 1;
+  display: flex;
+}
+
+/* ========== 2 main sections======= */
+.sidepanel {
+  border: solid black;
+  flex: 1;
+  max-width: 55rem;
+  padding: 4rem;
+}
+
+.map {
+  flex: 2;
+  border: solid blue;
+}

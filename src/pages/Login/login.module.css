@@ -7,9 +7,10 @@
 }
 
 .loginForm {
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   padding: 4rem;
-  border-radius: 1.5rem;
+  border-radius: 1.2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
