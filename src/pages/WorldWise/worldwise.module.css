@@ -5,13 +5,98 @@
 
 /* ========== 2 main sections======= */
 .sidepanel {
-  border: solid black;
   flex: 1;
   max-width: 55rem;
   padding: 4rem;
+  background-color: #2d3439;
 }
 
 .map {
   flex: 2;
-  border: solid blue;
+}
+
+/* ==========SIDE PANEL CONTENT========= */
+
+/* --------------tripForm--------------- */
+.locationFilter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2rem auto;
+}
+
+.locationFilter button {
+  border: none;
+  padding: 1rem 2rem;
+  background-color: #43484d;
+  color: white;
+  border-radius: 0;
+  font-size: 1.6rem;
+}
+.toggled {
+  background-color: #242a2e !important;
+}
+
+.message {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 2rem auto;
+  width: 80%;
+  font-weight: 600;
+  color: #ececec;
+}
+
+.tripForm {
+  background-color: #43484d;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 1rem;
+}
+
+.tripForm > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tripForm input,
+.tripForm textarea {
+  font-size: 1.6rem;
+  padding: 1rem 0.5rem;
+  border-radius: 0.6rem;
+  border: none;
+  background-color: #d6dee0;
+}
+
+.tripForm input:focus,
+.tripForm textarea:focus {
+  outline: none;
+  background-color: white;
+}
+
+.buttonGroup {
+  flex-direction: row !important;
+  justify-content: space-between;
+}
+
+.buttonGroup button {
+  padding: 0.8rem 1.6rem;
+  font-size: 1.5rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  gap: 1rem;
+}
+
+.buttonGroup button:nth-of-type(1) {
+  background-color: var(--primary-color);
 }

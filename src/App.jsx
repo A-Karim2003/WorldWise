@@ -31,7 +31,11 @@ function App() {
           <Route path="/pricing" element={<Pricing />} />
           <Route path="/product" element={<Product />} />
         </Route>
-        <Route path="/worldwise" element={<WorldWise />}></Route>
+        <Route path="/worldwise" element={<WorldWise />}>
+          <Route path="cities" element={<h1>Cities</h1>} />
+          <Route path="countries" element={<h1>Countries</h1>} />
+          <Route path="form" element={<h1> Form </h1>} />
+        </Route>
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>
