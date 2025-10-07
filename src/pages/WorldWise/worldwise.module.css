@@ -7,8 +7,15 @@
 .sidepanel {
   flex: 1;
   max-width: 55rem;
+  min-width: 40rem;
   padding: 4rem;
   background-color: #2d3439;
+}
+
+@media (max-width: 575.98px) {
+  .sidepanel {
+    padding: 2rem;
+  }
 }
 
 .map {

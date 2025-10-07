@@ -1,11 +1,12 @@
 import styles from "./cityList.module.css";
+import City from "./City";
 
-function CityList() {
+function CityList({ cities, status }) {
   return (
     <ul className={styles.cityList}>
-      <li>City List</li>
-      <li>City List</li>
-      <li>City List</li>
+      {cities.map((city) => {
+        return <City city={city} key={city.id} />;
+      })}
     </ul>
   );
 }

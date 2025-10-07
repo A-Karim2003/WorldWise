@@ -19,7 +19,12 @@ const routeToBgMap = {
   "/login": "loginBg",
 };
 
+/*==============Components============*/
+import { useFetch } from "./hooks/useFetch";
+
 function App() {
+  const { cities, status } = useFetch();
+
   const location = useLocation();
   const bgClass = routeToBgMap[location.pathname] || "default";
 
@@ -33,8 +38,11 @@ function App() {
           <Route path="/product" element={<Product />} />
         </Route>
         <Route path="/worldwise" element={<WorldWise />}>
-          <Route index element={<CityList />} />
-          <Route path="cities" element={<h1>Cities</h1>} />
+          <Route index element={<CityList cities={cities} status={status} />} />
+          <Route
+            path="cities"
+            element={<CityList cities={cities} status={status} />}
+          />
           <Route path="countries" element={<h1>Countries</h1>} />
           <Route path="form" element={<h1> Form </h1>} />
         </Route>
