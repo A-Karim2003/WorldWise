@@ -9,6 +9,7 @@ import PageNotFound from "./pages/PageNotFound/PageNotFound";
 import WorldWise from "./pages/WorldWise/worldwise";
 /*==============Components============*/
 import AppLayout from "./components/AppLayout/AppLayout";
+import CityList from "./components/CityList";
 
 /*============Routes to BG Map========*/
 const routeToBgMap = {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/product" element={<Product />} />
         </Route>
         <Route path="/worldwise" element={<WorldWise />}>
+          <Route index element={<CityList />} />
           <Route path="cities" element={<h1>Cities</h1>} />
           <Route path="countries" element={<h1>Countries</h1>} />
           <Route path="form" element={<h1> Form </h1>} />
