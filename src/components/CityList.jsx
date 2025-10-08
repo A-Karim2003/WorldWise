@@ -2,6 +2,8 @@ import styles from "./cityList.module.css";
 import City from "./City";
 
 function CityList({ cities, status }) {
+  if (!cities.length) return <div></div>;
+
   return (
     <ul className={styles.cityList}>
       {cities.map((city) => {

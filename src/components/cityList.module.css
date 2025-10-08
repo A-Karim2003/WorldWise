@@ -22,10 +22,12 @@
 .city:active {
   background-color: #242a2e;
 }
-
-.city div span {
-  margin-right: 1rem;
+.city > div {
+  flex: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
 }
+
 .city div button {
   border: none;
   height: 2rem;
@@ -35,8 +37,32 @@
   color: white;
   cursor: pointer;
   transition: all 0.3s ease;
+  margin-left: 0, 5rem;
 }
 .city div button:hover {
   background-color: var(--secondary-color);
   color: black;
+}
+
+/* ===============CountryList============== */
+.countryList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.country {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: #42484d;
+  color: #ececec;
+  border-radius: 7px;
+  padding: 1rem 2rem;
+  border-left: 5px solid var(--secondary-color);
+  text-align: CENTER;
 }

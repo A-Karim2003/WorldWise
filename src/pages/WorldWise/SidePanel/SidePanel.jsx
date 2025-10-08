@@ -7,7 +7,7 @@ import Button from "../../../components/AppLayout/Button";
 import { Link, Outlet } from "react-router-dom";
 import { useState } from "react";
 
-function SidePanel() {
+function SidePanel({ length }) {
   const [toggleBtn, setToggleBtn] = useState("cities");
 
   return (
@@ -28,11 +28,13 @@ function SidePanel() {
         </Link>
       </div>
       <div>
-        {/* prettier-ignore */}
-        <h2 className={styles.message}>
-            👋 Add your first city by clicking
-             on a city on the map
-        </h2>
+        {!length ? (
+          <h2 className={styles.message}>
+            👋 Add your first city by clicking on a city on the map
+          </h2>
+        ) : (
+          ""
+        )}
         <Outlet />
       </div>
     </div>

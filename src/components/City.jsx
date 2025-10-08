@@ -9,8 +9,6 @@ function City({ city }) {
     day: "numeric",
   });
 
-  console.log(formattedDate);
-
   return (
     <li className={styles.city}>
       <div>
