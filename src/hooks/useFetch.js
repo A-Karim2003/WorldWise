@@ -19,7 +19,8 @@ export function useFetch() {
         setCities(cities);
         setStatus("success");
       } catch (error) {
-        setStatus(error.message);
+        setStatus({ status: "error" });
+        console.error(error.message);
       }
     }
     fetchData();

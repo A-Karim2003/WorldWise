@@ -1,15 +1,37 @@
 import styles from "./cityList.module.css";
 import { useParams } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 function CityCard() {
   const { id } = useParams();
-  console.log(id);
+  const cityData = useFetch();
+
+  switch (cityData.status) {
+    case "idle":
+      return null;
+    case "loading":
+      return <p>Loading...</p>;
+
+    case "error":
+      return <p>Something went wrong.</p>;
+  }
+
+  console.log(cityData);
+
+  const [countryData] = cityData.cities.filter(
+    (city) => city.id === Number(id)
+  );
+
+  const { emoji: flag, country, date } = countryData;
+  console.log(flag, country, date);
 
   return (
-    <div className={styles.card}>
+    <div className={styles.cityCard}>
       <div className={styles.section}>
         <h4 className={styles.label}>CITY NAME</h4>
-        <p className={styles.value}>🇪🇸 Quiroga</p>
+        <p className={styles.value}>
+          <span>🇪🇸</span> Quiroga
+        </p>
       </div>
 
       <div className={styles.section}>
@@ -19,11 +41,9 @@ function CityCard() {
 
       <div className={styles.section}>
         <h4 className={styles.label}>LEARN MORE</h4>
-        <p className={styles.linkContainer}>
-          <a href="#" className={styles.link}>
-            Check out Quiroga on Wikipedia →
-          </a>
-        </p>
+        <a href="#" className={styles.link}>
+          Check out Quiroga on Wikipedia →
+        </a>
       </div>
 
       <button className={styles.backButton}>← BACK</button>
