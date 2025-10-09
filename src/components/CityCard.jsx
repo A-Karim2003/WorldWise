@@ -1,6 +1,10 @@
 import styles from "./cityList.module.css";
+import { useParams } from "react-router-dom";
 
 function CityCard() {
+  const { id } = useParams();
+  console.log(id);
+
   return (
     <div className={styles.card}>
       <div className={styles.section}>

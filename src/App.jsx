@@ -22,6 +22,7 @@ const routeToBgMap = {
 
 /*==============Components============*/
 import { useFetch } from "./hooks/useFetch";
+import CityCard from "./components/CityCard";
 
 function App() {
   const { cities, status } = useFetch();
@@ -48,6 +49,7 @@ function App() {
             path="countries"
             element={<CountryList cities={cities} status={status} />}
           />
+          <Route path="cities/:id" element={<CityCard />} />
 
           <Route path="form" element={<h1> Form </h1>} />
         </Route>

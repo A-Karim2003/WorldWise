@@ -19,6 +19,10 @@
   font-size: 1.6rem;
 }
 
+.city.active {
+  border: solid var(--primary-color);
+}
+
 .city:active {
   background-color: #242a2e;
 }
