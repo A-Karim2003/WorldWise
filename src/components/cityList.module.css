@@ -95,13 +95,15 @@
 .label {
   color: #a6a6a7;
   font-size: 1.4rem;
+  text-transform: uppercase;
 }
 
 .value {
   display: flex;
   gap: 3rem;
-  font-size: 2rem;
+  font-size: 1.6rem;
   align-items: center;
+  text-transform: uppercase;
 }
 
 .value span {

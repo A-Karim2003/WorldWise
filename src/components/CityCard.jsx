@@ -16,33 +16,40 @@ function CityCard() {
       return <p>Something went wrong.</p>;
   }
 
-  console.log(cityData);
-
   const [countryData] = cityData.cities.filter(
     (city) => city.id === Number(id)
   );
 
   const { emoji: flag, country, date } = countryData;
-  console.log(flag, country, date);
+
+  const formattedDate = new Date(date).toLocaleDateString("en-GB", {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
 
   return (
     <div className={styles.cityCard}>
       <div className={styles.section}>
         <h4 className={styles.label}>CITY NAME</h4>
         <p className={styles.value}>
-          <span>🇪🇸</span> Quiroga
+          <span>{flag}</span> {country}
         </p>
       </div>
 
       <div className={styles.section}>
-        <h4 className={styles.label}>YOU WENT TO QUIROGA ON</h4>
-        <p className={styles.value}>Thursday, October 9, 2025</p>
+        <h4 className={styles.label}>YOU WENT TO {country} ON</h4>
+        <p className={styles.value}>{formattedDate}</p>
       </div>
 
       <div className={styles.section}>
         <h4 className={styles.label}>LEARN MORE</h4>
-        <a href="#" className={styles.link}>
-          Check out Quiroga on Wikipedia →
+        <a
+          href={`https://en.wikipedia.org/wiki/${country}`}
+          className={styles.link}
+        >
+          Check out {country} on Wikipedia →
         </a>
       </div>
 
