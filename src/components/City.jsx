@@ -2,8 +2,6 @@ import styles from "./cityList.module.css";
 import { Link } from "react-router-dom";
 
 function City({ city }) {
-  console.log(city);
-
   const {
     emoji,
     cityName,

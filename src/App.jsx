@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 
 /*===============Pages===============*/
 import Homepage from "./pages/Homepage/Homepage";
@@ -11,6 +11,11 @@ import WorldWise from "./pages/WorldWise/worldwise";
 import AppLayout from "./components/AppLayout/AppLayout";
 import CityList from "./components/CityList";
 import CountryList from "./components/CountryList";
+import CityCard from "./components/CityCard";
+
+/*==============Components============*/
+import { useFetch } from "./hooks/useFetch";
+import TripForm from "./pages/WorldWise/TripForm";
 
 /*============Routes to BG Map========*/
 const routeToBgMap = {
@@ -19,10 +24,6 @@ const routeToBgMap = {
   "/product": "productBg",
   "/login": "loginBg",
 };
-
-/*==============Components============*/
-import { useFetch } from "./hooks/useFetch";
-import CityCard from "./components/CityCard";
 
 function App() {
   const { cities, status } = useFetch();
@@ -40,7 +41,7 @@ function App() {
           <Route path="/product" element={<Product />} />
         </Route>
         <Route path="/worldwise" element={<WorldWise length={cities.length} />}>
-          <Route index element={<CityList cities={cities} status={status} />} />
+          <Route index element={<Navigate replace to="cities" />} />
           <Route
             path="cities"
             element={<CityList cities={cities} status={status} />}
@@ -51,7 +52,7 @@ function App() {
           />
           <Route path="cities/:id" element={<CityCard />} />
 
-          <Route path="form" element={<h1> Form </h1>} />
+          <Route path="form" element={<TripForm />} />
         </Route>
 
         <Route path="*" element={<PageNotFound />} />

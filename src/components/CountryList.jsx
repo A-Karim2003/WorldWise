@@ -18,7 +18,7 @@ function CountryList({ cities, status }) {
     <ul className={styles.countryList}>
       {filteredCountries.map((country) => {
         return (
-          <li class={styles.country}>
+          <li className={styles.country} key={country.name}>
             <span>{country.flag}</span>
             <span>{country.name}</span>
           </li>
