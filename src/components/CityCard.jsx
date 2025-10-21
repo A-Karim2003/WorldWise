@@ -1,10 +1,12 @@
 import styles from "./cityList.module.css";
-import { useParams } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
+import { useNavigate, useParams } from "react-router-dom";
+import { CitiesContext } from "../context/CitiesProvider";
+import { useContext } from "react";
 
 function CityCard() {
   const { id } = useParams();
-  const cityData = useFetch();
+  const cityData = useContext(CitiesContext);
+  const navigate = useNavigate();
 
   switch (cityData.status) {
     case "idle":
@@ -53,7 +55,9 @@ function CityCard() {
         </a>
       </div>
 
-      <button className={styles.backButton}>← BACK</button>
+      <button onClick={() => navigate(-1)} className={styles.backButton}>
+        ← BACK
+      </button>
     </div>
   );
 }

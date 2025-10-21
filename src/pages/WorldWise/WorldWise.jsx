@@ -2,10 +2,10 @@ import styles from "./worldwise.module.css";
 import Map from "./Map/Map";
 import SidePanel from "./SidePanel/SidePanel";
 
-function worldwise({ length }) {
+function worldwise() {
   return (
     <section className={styles.worldwiseContainer}>
-      <SidePanel length={length} />
+      <SidePanel />
       <Map />
     </section>
   );

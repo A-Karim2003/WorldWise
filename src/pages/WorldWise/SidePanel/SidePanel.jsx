@@ -5,10 +5,12 @@ import TripForm from "../TripForm";
 import Button from "../../../components/AppLayout/Button";
 
 import { Link, Outlet } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CitiesContext } from "../../../context/CitiesProvider";
 
-function SidePanel({ length }) {
+function SidePanel() {
   const [toggleBtn, setToggleBtn] = useState("cities");
+  const length = useContext(CitiesContext).cities.length;
 
   return (
     <div className={styles.sidepanel}>

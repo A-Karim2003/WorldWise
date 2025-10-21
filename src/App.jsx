@@ -14,7 +14,7 @@ import CountryList from "./components/CountryList";
 import CityCard from "./components/CityCard";
 
 /*==============Components============*/
-import { useFetch } from "./hooks/useFetch";
+import CitiesProvider, { CitiesContext } from "./context/CitiesProvider";
 import TripForm from "./pages/WorldWise/TripForm";
 
 /*============Routes to BG Map========*/
@@ -26,37 +26,32 @@ const routeToBgMap = {
 };
 
 function App() {
-  const { cities, status } = useFetch();
-
   const location = useLocation();
   const bgClass = routeToBgMap[location.pathname] || "default";
 
   return (
     <div className={`app ${bgClass}`}>
-      <Routes>
-        <Route element={<AppLayout />}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/pricing" element={<Pricing />} />
-          <Route path="/product" element={<Product />} />
-        </Route>
-        <Route path="/worldwise" element={<WorldWise length={cities.length} />}>
-          <Route index element={<Navigate replace to="cities" />} />
-          <Route
-            path="cities"
-            element={<CityList cities={cities} status={status} />}
-          />
-          <Route
-            path="countries"
-            element={<CountryList cities={cities} status={status} />}
-          />
-          <Route path="cities/:id" element={<CityCard />} />
+      <CitiesProvider>
+        <Routes>
+          <Route element={<AppLayout />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/product" element={<Product />} />
+          </Route>
+          <Route path="/worldwise" element={<WorldWise />}>
+            <Route index element={<Navigate replace to="cities" />} />
 
-          <Route path="form" element={<TripForm />} />
-        </Route>
+            <Route path="cities" element={<CityList />} />
+            <Route path="countries" element={<CountryList />} />
+            <Route path="cities/:id" element={<CityCard />} />
 
-        <Route path="*" element={<PageNotFound />} />
-      </Routes>
+            <Route path="form" element={<TripForm />} />
+          </Route>
+
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </CitiesProvider>
     </div>
   );
 }

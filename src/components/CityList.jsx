@@ -1,7 +1,10 @@
 import styles from "./cityList.module.css";
 import City from "./City";
+import { useContext } from "react";
+import { CitiesContext } from "../context/CitiesProvider";
 
-function CityList({ cities, status }) {
+function CityList() {
+  const cities = useContext(CitiesContext).cities;
   if (!cities.length) return <div></div>;
 
   return (

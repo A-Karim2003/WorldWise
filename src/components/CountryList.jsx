@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import styles from "./cityList.module.css";
+import { CitiesContext } from "../context/CitiesProvider";
 
-function CountryList({ cities, status }) {
+function CountryList() {
   const countries = new Map();
+  const cities = useContext(CitiesContext).cities;
 
   cities.forEach(
     (city) =>
