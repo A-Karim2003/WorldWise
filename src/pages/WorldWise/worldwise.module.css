@@ -18,11 +18,18 @@
   }
 }
 
-.map {
+.mapContainer {
   flex: 2;
   background-color: #dad9d9;
 }
 
+.mapContainer > div {
+  height: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+  background-color: red;
+}
 /* ==========SIDE PANEL CONTENT========= */
 
 /* --------------tripForm--------------- */

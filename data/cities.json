@@ -4,11 +4,11 @@
       "cityName": "Lisbon",
       "country": "Portugal",
       "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
+      "date": "2024-06-21T14:45:00.000Z",
+      "notes": "Loved the food and ocean views near Belém Tower.",
       "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
+        "lat": 38.7223,
+        "lng": -9.1393
       },
       "id": 73930385
     },
@@ -16,11 +16,11 @@
       "cityName": "Madrid",
       "country": "Spain",
       "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
+      "date": "2024-07-10T10:15:00.000Z",
+      "notes": "Visited the Prado Museum and Retiro Park — super hot in summer!",
       "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
+        "lat": 40.4168,
+        "lng": -3.7038
       },
       "id": 17806751
     },
@@ -28,23 +28,23 @@
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
+      "date": "2023-12-05T09:30:00.000Z",
+      "notes": "Christmas markets were magical 🎄.",
       "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
+        "lat": 52.52,
+        "lng": 13.405
       },
       "id": 98443197
     },
     {
-      "cityName": "Nijar",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2023-04-03T07:47:59.202Z",
-      "notes": "",
+      "cityName": "Paris",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2023-04-18T11:00:00.000Z",
+      "notes": "Saw the Eiffel Tower at night — breathtaking!",
       "position": {
-        "lat": "36.967508314568164",
-        "lng": "-2.13128394200588"
+        "lat": 48.8566,
+        "lng": 2.3522
       },
       "id": 98443198
     },
@@ -52,11 +52,11 @@
       "cityName": "London",
       "country": "United Kingdom",
       "emoji": "🇬🇧",
-      "date": "2025-09-03T07:47:59.202Z",
-      "notes": "",
+      "date": "2025-09-03T08:25:00.000Z",
+      "notes": "Walked along the Thames and visited Camden Market.",
       "position": {
-        "lat": "36.967508314568164",
-        "lng": "-2.13128394200588"
+        "lat": 51.5072,
+        "lng": -0.1276
       },
       "id": 6844311186
     },
@@ -64,11 +64,11 @@
       "cityName": "Bristol",
       "country": "United Kingdom",
       "emoji": "🇬🇧",
-      "date": "2025-03-03T07:47:59.202Z",
-      "notes": "",
+      "date": "2025-03-12T16:00:00.000Z",
+      "notes": "Cool street art scene — Banksy everywhere!",
       "position": {
-        "lat": "36.967508314568164",
-        "lng": "-2.13128394200588"
+        "lat": 51.4545,
+        "lng": -2.5879
       },
       "id": 684431186
     }

@@ -14,7 +14,7 @@ import CountryList from "./components/CountryList";
 import CityCard from "./components/CityCard";
 
 /*==============Components============*/
-import CitiesProvider, { CitiesContext } from "./context/CitiesProvider";
+import CitiesProvider from "./context/CitiesProvider";
 import TripForm from "./pages/WorldWise/TripForm";
 
 /*============Routes to BG Map========*/
