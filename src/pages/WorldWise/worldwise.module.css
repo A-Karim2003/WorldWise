@@ -27,8 +27,14 @@
   height: 100%;
 }
 
-.leaflet-popup-content-wrapper {
-  background-color: red;
+:global(.leaflet-popup-content-wrapper) {
+  font-size: 1.6rem;
+  background-color: #42484d;
+  color: #ececec;
+  border-radius: 7px;
+  padding: 1rem 2rem;
+  border-left: 5px solid var(--primary-color);
+  text-align: CENTER;
 }
 /* ==========SIDE PANEL CONTENT========= */
 
