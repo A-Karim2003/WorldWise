@@ -17,7 +17,12 @@ function City({ city }) {
   });
 
   return (
-    <Link to={`${id}?lat=${lat}&lng=${lng}`}>
+    <Link
+      to={`${id}?lat=${lat}&lng=${lng}`}
+      onClick={() => {
+        console.log(city);
+      }}
+    >
       <li className={styles.city}>
         <div>
           <span> {emoji} </span>
