@@ -11,10 +11,10 @@ function Map() {
 
   const { cities } = useContext(CitiesContext);
 
-  const lat = parseFloat(searchParam.get("lat")) || 51.505; // ✅ fallback values
-  const lng = parseFloat(searchParam.get("lng")) || -0.09;
+  const mapLat = parseFloat(searchParam.get("lat")) || 51.505; // ✅ fallback values
+  const mapLng = parseFloat(searchParam.get("lng")) || -0.09;
 
-  const [mapPosition, setMapPosition] = useState([lat, lng]);
+  const [mapPosition, setMapPosition] = useState([mapLat, mapLng]);
 
   return (
     <div
@@ -23,7 +23,7 @@ function Map() {
         navigate("/worldwise/form");
       }}
     >
-      <MapContainer center={mapPosition} zoom={13} scrollWheelZoom={true}>
+      <MapContainer center={mapPosition} zoom={6} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
