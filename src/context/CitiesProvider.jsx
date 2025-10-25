@@ -6,6 +6,7 @@ export const CitiesContext = createContext(null);
 export default function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [status, setStatus] = useState("idle");
+  const [activeCityId, setActiveCityId] = useState();
 
   useEffect(() => {
     async function fetchData() {
@@ -29,5 +30,9 @@ export default function CitiesProvider({ children }) {
     fetchData();
   }, []);
 
-  return <CitiesContext value={{ cities, status }}>{children}</CitiesContext>;
+  return (
+    <CitiesContext value={{ cities, status, activeCityId, setActiveCityId }}>
+      {children}
+    </CitiesContext>
+  );
 }

@@ -1,5 +1,8 @@
+import { useContext } from "react";
+import CityCard from "./CityCard";
 import styles from "./cityList.module.css";
 import { Link } from "react-router-dom";
+import { CitiesContext } from "../context/CitiesProvider";
 
 function City({ city }) {
   const {
@@ -16,14 +19,16 @@ function City({ city }) {
     day: "numeric",
   });
 
+  const { activeCityId, setActiveCityId } = useContext(CitiesContext);
+
+  const isActive = activeCityId === id;
+
   return (
     <Link
       to={`${id}?lat=${lat}&lng=${lng}`}
-      onClick={() => {
-        console.log(city);
-      }}
+      onClick={() => setActiveCityId(id)}
     >
-      <li className={styles.city}>
+      <li className={`${styles.city} ${isActive ? styles.active : ""}`}>
         <div>
           <span> {emoji} </span>
           <span> {cityName} </span>

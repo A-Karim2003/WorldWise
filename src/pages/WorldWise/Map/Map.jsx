@@ -1,9 +1,17 @@
 import styles from "../WorldWise.module.css";
 import { useNavigate, useSearchParams } from "react-router-dom";
 
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import {
+  MapContainer,
+  TileLayer,
+  Marker,
+  Popup,
+  useMap,
+  useMapEvents,
+} from "react-leaflet";
 import { useContext, useEffect, useState } from "react";
 import { CitiesContext } from "../../../context/CitiesProvider";
+import useGeolocation from "../../../utils/useGeolocation";
 
 function Map() {
   const [searchParam] = useSearchParams();
@@ -18,16 +26,12 @@ function Map() {
   useEffect(() => {
     if (!lat && !lng) return;
     setMapPosition([lat, lng]);
-    console.log(lat, lng);
   }, [lat, lng]);
 
+  useGeolocation();
+
   return (
-    <div
-      className={styles.mapContainer}
-      onClick={() => {
-        navigate("/worldwise/form");
-      }}
-    >
+    <div className={styles.mapContainer}>
       <MapContainer center={mapPosition} zoom={6} scrollWheelZoom={true}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -35,6 +39,7 @@ function Map() {
         />
 
         <ChangeMapCenter position={mapPosition} />
+        <GetLocation />
         {cities.map((city) => {
           const { lat, lng } = city.position;
           return (
@@ -54,4 +59,13 @@ function ChangeMapCenter({ position }) {
   return null;
 }
 
+function GetLocation() {
+  const navigate = useNavigate();
+  useMapEvents({
+    click(e) {
+      const { lat, lng } = e.latlng;
+      navigate(`form?lat=${lat}&lng=${lng}`);
+    },
+  });
+}
 export default Map;

@@ -11,7 +11,7 @@ function TripForm() {
 
   function navigateBack(e) {
     e.preventDefault();
-    navigate(-1);
+    navigate("/worldwise/cities");
   }
   return (
     <form className={styles.tripForm}>
