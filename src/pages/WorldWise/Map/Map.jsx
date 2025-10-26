@@ -1,5 +1,5 @@
 import styles from "../WorldWise.module.css";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import {
   MapContainer,
@@ -13,18 +13,16 @@ import {
 import { useContext, useEffect, useState } from "react";
 import { CitiesContext } from "../../../context/CitiesProvider";
 import Button from "../../../components/AppLayout/Button";
-import useGeolocation from "../../../utils/useGeolocation";
+import useGeolocation from "../../../hooks/useGeolocation";
+import useUrlPosition from "../../../hooks/useUrlPosition";
 
 function Map() {
-  const [searchParam] = useSearchParams();
-
   const { cities } = useContext(CitiesContext);
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
   const { status, geolocationPosition, getPosition } = useGeolocation();
 
-  const lat = parseFloat(searchParam.get("lat"));
-  const lng = parseFloat(searchParam.get("lng"));
+  const { lat, lng } = useUrlPosition();
 
   useEffect(() => {
     if (!lat && !lng) return;
@@ -33,8 +31,6 @@ function Map() {
 
   useEffect(() => {
     if (!geolocationPosition) return;
-    console.log(status);
-
     setMapPosition(geolocationPosition);
   }, [geolocationPosition, status]);
 

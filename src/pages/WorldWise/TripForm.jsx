@@ -1,13 +1,33 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./worldwise.module.css";
+import useUrlPosition from "../../hooks/useUrlPosition";
 
 function TripForm() {
   const [cityName, setCityName] = useState();
   const [notes, setNotes] = useState();
   const [date, setDate] = useState();
-
+  const { lat, lng } = useUrlPosition();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    async function fetchReverseGeolocation() {
+      try {
+        const res = await fetch(
+          `https://api-bdc.io/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
+        );
+        if (!res.ok)
+          throw new Error(
+            `Failed to fetch location data: ${res.status} ${res.statusText}`
+          );
+        const { city } = await res.json();
+        setCityName(city);
+      } catch (e) {
+        console.log(`Error fetching location data: ${e.message}`);
+      }
+    }
+    fetchReverseGeolocation();
+  }, [lat, lng]);
 
   function navigateBack(e) {
     e.preventDefault();
