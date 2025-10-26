@@ -21,10 +21,26 @@
 .mapContainer {
   flex: 2;
   background-color: #dad9d9;
+  position: relative;
 }
 
 .mapContainer > div {
   height: 100%;
+}
+
+/* use your location button */
+.getLocationBtn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  font-size: 1.6rem;
+}
+
+.getLocationBtn:hover {
+  transform: translate(-50%, -50%);
+  background-color: var(--secondary-color);
 }
 
 :global(.leaflet-popup-content-wrapper) {

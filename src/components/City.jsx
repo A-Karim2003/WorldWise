@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import CityCard from "./CityCard";
 import styles from "./cityList.module.css";
 import { Link } from "react-router-dom";
 import { CitiesContext } from "../context/CitiesProvider";

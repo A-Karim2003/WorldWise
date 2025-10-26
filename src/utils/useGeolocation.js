@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-function useGeolocation() {
+function useGeolocation(defaultPositon = null) {
   const [status, setStatus] = useState({
     status: "idle",
     statusMessage: "",
   });
-  const [position, setPosition] = useState("idle");
+  const [geolocationPosition, setGeolocationPosition] =
+    useState(defaultPositon);
 
   function getPosition() {
     if (!navigator.geolocation)
@@ -16,7 +17,7 @@ function useGeolocation() {
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
-        setPosition({
+        setGeolocationPosition({
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         });
@@ -49,7 +50,7 @@ function useGeolocation() {
     );
   }
 
-  return { status, position, getPosition };
+  return { status, geolocationPosition, getPosition };
 }
 
 export default useGeolocation;
