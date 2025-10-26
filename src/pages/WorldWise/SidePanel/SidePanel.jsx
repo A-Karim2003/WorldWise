@@ -1,7 +1,6 @@
 import styles from "../WorldWise.module.css";
 
 import Logo from "../../../components/AppLayout/Logo";
-import TripForm from "../TripForm";
 import Button from "../../../components/AppLayout/Button";
 
 import { Link, Outlet } from "react-router-dom";

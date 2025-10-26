@@ -137,3 +137,13 @@
 .buttonGroup button:nth-of-type(1) {
   background-color: var(--primary-color);
 }
+
+.cityNotFound {
+  text-align: center;
+  font-size: 1.8rem;
+  margin: 2rem auto;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1px;
+  color: #ececec;
+}

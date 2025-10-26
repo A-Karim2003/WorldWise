@@ -3,12 +3,40 @@ import { useNavigate } from "react-router-dom";
 import styles from "./worldwise.module.css";
 import useUrlPosition from "../../hooks/useUrlPosition";
 
+function countryToFlag(country) {
+  const codePoints = country
+    .toUpperCase()
+    .replace(/ /g, "") // remove spaces if any
+    .slice(0, 2) // ensure only two letters
+    .split("")
+    .map((char) => 127397 + char.charCodeAt());
+  return String.fromCodePoint(...codePoints);
+}
+
 function TripForm() {
-  const [cityName, setCityName] = useState();
-  const [notes, setNotes] = useState();
-  const [date, setDate] = useState();
+  const [cityName, setCityName] = useState("");
+  const [countryName, setCountryName] = useState("");
+  const [countryCode, setCountryCode] = useState("");
+  const [isCityFound, setIsCityFound] = useState();
+  const [notes, setNotes] = useState("");
+  const [date, setDate] = useState("");
   const { lat, lng } = useUrlPosition();
   const navigate = useNavigate();
+
+  function tripData() {
+    return {
+      cityName: cityName,
+      country: countryName,
+      emoji: countryToFlag(countryCode),
+      date: date || new Date().toLocaleDateString("en-GB"),
+      notes: notes,
+      position: {
+        lat: lat,
+        lng: lng,
+      },
+      id: Math.floor(Math.random() * 1_000_000_0000),
+    };
+  }
 
   useEffect(() => {
     async function fetchReverseGeolocation() {
@@ -20,8 +48,17 @@ function TripForm() {
           throw new Error(
             `Failed to fetch location data: ${res.status} ${res.statusText}`
           );
-        const { city } = await res.json();
-        setCityName(city);
+
+        const { city, locality, countryName, countryCode } = await res.json();
+
+        if (!city && locality) {
+          setIsCityFound(false);
+          return;
+        }
+        setIsCityFound(true);
+        setCityName(city || locality);
+        setCountryName(countryName);
+        setCountryCode(countryCode);
       } catch (e) {
         console.log(`Error fetching location data: ${e.message}`);
       }
@@ -33,6 +70,12 @@ function TripForm() {
     e.preventDefault();
     navigate("/worldwise/cities");
   }
+  if (!isCityFound)
+    return (
+      <p className={styles.cityNotFound}>
+        👋 That doesn't seem to be a city. Click somewhere else 😉
+      </p>
+    );
   return (
     <form className={styles.tripForm}>
       <div>
@@ -47,7 +90,7 @@ function TripForm() {
       </div>
 
       <div>
-        <label htmlFor="date">When did you go to?</label>
+        <label htmlFor="date">When did you go to {cityName}?</label>
         <input
           id="date"
           type="date"
