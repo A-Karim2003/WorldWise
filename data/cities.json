@@ -71,6 +71,90 @@
         "lng": -2.5879
       },
       "id": 684431186
+    },
+    {
+      "id": 7349196967,
+      "cityName": "Birr",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 53.03333699833492,
+        "lng": -7.854282699331479
+      }
+    },
+    {
+      "id": 1390340339,
+      "cityName": "Neukirchen-Vluyn",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 51.42661449707482,
+        "lng": 6.554907977472101
+      }
+    },
+    {
+      "id": 1663509355,
+      "cityName": "Adare",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 52.53918578156391,
+        "lng": -8.900255404940271
+      }
+    },
+    {
+      "id": 7325655382,
+      "cityName": "Adare",
+      "country": "Ireland",
+      "emoji": "🇮🇪",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 52.53918578156391,
+        "lng": -8.900255404940271
+      }
+    },
+    {
+      "id": 1348505929,
+      "cityName": "Benefield",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 52.50949054320674,
+        "lng": -0.5680800978479185
+      }
+    },
+    {
+      "id": 9402762558,
+      "cityName": "Cheddleton",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 53.067626642387374,
+        "lng": -2.0611743552861617
+      }
+    },
+    {
+      "id": 5082835735,
+      "cityName": "Moso in Passiria",
+      "country": "Italy",
+      "emoji": "🇮🇹",
+      "date": "27/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 46.87249470500508,
+        "lng": 11.100726957699056
+      }
     }
   ]
 }

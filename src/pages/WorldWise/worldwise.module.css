@@ -147,3 +147,7 @@
   letter-spacing: 1px;
   color: #ececec;
 }
+
+.datePicker {
+  width: 100%;
+}

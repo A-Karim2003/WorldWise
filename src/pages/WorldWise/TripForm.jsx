@@ -3,6 +3,10 @@ import { useNavigate } from "react-router-dom";
 import styles from "./worldwise.module.css";
 import useUrlPosition from "../../hooks/useUrlPosition";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import { width } from "@fortawesome/free-solid-svg-icons/fa0";
+
 function countryToFlag(country) {
   const codePoints = country
     .toUpperCase()
@@ -19,23 +23,38 @@ function TripForm() {
   const [countryCode, setCountryCode] = useState("");
   const [isCityFound, setIsCityFound] = useState();
   const [notes, setNotes] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setDate] = useState(new Date().toLocaleDateString("en-GB"));
   const { lat, lng } = useUrlPosition();
   const navigate = useNavigate();
 
-  function tripData() {
-    return {
-      cityName: cityName,
-      country: countryName,
-      emoji: countryToFlag(countryCode),
-      date: date || new Date().toLocaleDateString("en-GB"),
-      notes: notes,
-      position: {
-        lat: lat,
-        lng: lng,
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const res = await fetch("http://localhost:9000/cities", {
+      method: "POST",
+      header: {
+        "content-type": "application/json",
       },
-      id: Math.floor(Math.random() * 1_000_000_0000),
-    };
+      body: JSON.stringify({
+        cityName: cityName,
+        country: countryName,
+        emoji: countryToFlag(countryCode),
+        date: date || new Date().toLocaleDateString("en-GB"),
+        notes: notes,
+        position: {
+          lat: lat,
+          lng: lng,
+        },
+        id: Math.floor(Math.random() * 1_000_000_0000),
+      }),
+    });
+
+    navigate("/worldwise/cities");
+
+    if (!res.ok)
+      throw new Error(`Failed to add city: ${res.status} ${res.statusText}`);
+
+    const data = await res.json();
+    console.log("City added:", data);
   }
 
   useEffect(() => {
@@ -46,8 +65,6 @@ function TripForm() {
         const res = await fetch(
           `https://api-bdc.io/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
         );
-
-        console.log(res);
 
         if (!res.ok)
           throw new Error(
@@ -75,6 +92,12 @@ function TripForm() {
     e.preventDefault();
     navigate("/worldwise/cities");
   }
+
+  if (!lat && !lng)
+    return (
+      <p className={styles.message}>Start by clicking somewhere on the map</p>
+    );
+
   if (!isCityFound)
     return (
       <p className={styles.message}>
@@ -82,13 +105,8 @@ function TripForm() {
       </p>
     );
 
-  if (!lat && !lng)
-    return (
-      <p className={styles.message}>Start by clicking somewhere on the map</p>
-    );
-
   return (
-    <form className={styles.tripForm}>
+    <form className={styles.tripForm} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="city">City name</label>
         <input
@@ -102,11 +120,15 @@ function TripForm() {
 
       <div>
         <label htmlFor="date">When did you go to {cityName}?</label>
-        <input
+
+        <DatePicker
           id="date"
           type="date"
-          onChange={(e) => setDate(e.target.value)}
+          onChange={(date) =>
+            setDate(new Date(date).toLocaleDateString("en-GB"))
+          }
           value={date}
+          className={styles.datePicker}
         />
       </div>
 
