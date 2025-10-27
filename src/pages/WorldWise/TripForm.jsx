@@ -39,11 +39,16 @@ function TripForm() {
   }
 
   useEffect(() => {
+    if (!lat || !lng) return;
+
     async function fetchReverseGeolocation() {
       try {
         const res = await fetch(
           `https://api-bdc.io/data/reverse-geocode-client?latitude=${lat}&longitude=${lng}&localityLanguage=en`
         );
+
+        console.log(res);
+
         if (!res.ok)
           throw new Error(
             `Failed to fetch location data: ${res.status} ${res.statusText}`
@@ -72,10 +77,16 @@ function TripForm() {
   }
   if (!isCityFound)
     return (
-      <p className={styles.cityNotFound}>
+      <p className={styles.message}>
         👋 That doesn't seem to be a city. Click somewhere else 😉
       </p>
     );
+
+  if (!lat && !lng)
+    return (
+      <p className={styles.message}>Start by clicking somewhere on the map</p>
+    );
+
   return (
     <form className={styles.tripForm}>
       <div>
