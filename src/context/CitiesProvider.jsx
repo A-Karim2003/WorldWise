@@ -12,15 +12,15 @@ export default function CitiesProvider({ children }) {
     async function fetchData() {
       setStatus("loading");
       try {
-        const res = await fetch("/data/cities.json");
+        const res = await fetch("http://localhost:9000/cities");
 
         if (!res.ok)
           throw new Error(
             `Failed to fetch cities: ${res.status} ${res.statusText}`
           );
 
-        const { cities } = await res.json();
-        setCities(cities);
+        const data = await res.json();
+        setCities(data);
         setStatus("success");
       } catch (error) {
         setStatus("error");

@@ -31,8 +31,6 @@ function TripForm() {
 
   const { status: statusType } = status;
 
-  console.log(statusType);
-
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await fetch("http://localhost:9000/cities", {
@@ -117,6 +115,7 @@ function TripForm() {
     );
 
   if (statusType === "loading") return <Spinner />;
+
   return (
     <form className={styles.tripForm} onSubmit={handleSubmit}>
       <div>
