@@ -15,12 +15,19 @@ import { CitiesContext } from "../../../context/CitiesProvider";
 import Button from "../../../components/AppLayout/Button";
 import useGeolocation from "../../../hooks/useGeolocation";
 import useUrlPosition from "../../../hooks/useUrlPosition";
+import Spinner from "../../../components/Spinner";
 
 function Map() {
   const { cities } = useContext(CitiesContext);
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
-  const { status, geolocationPosition, getPosition } = useGeolocation();
+  const {
+    status: geoStatus,
+    geolocationPosition,
+    getPosition,
+  } = useGeolocation();
+
+  const { status } = geoStatus;
 
   const { lat, lng } = useUrlPosition();
 
@@ -32,7 +39,7 @@ function Map() {
   useEffect(() => {
     if (!geolocationPosition) return;
     setMapPosition(geolocationPosition);
-  }, [geolocationPosition, status]);
+  }, [geolocationPosition]);
 
   return (
     <div className={styles.mapContainer}>
@@ -54,7 +61,7 @@ function Map() {
         })}
       </MapContainer>
       <Button className={styles.getLocationBtn} onClick={getPosition}>
-        USE YOUR POSITION
+        {status === "loading" ? "LOADING POSITION..." : "USE YOUR POSITION"}
       </Button>
     </div>
   );

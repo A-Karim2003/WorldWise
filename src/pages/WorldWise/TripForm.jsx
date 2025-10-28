@@ -5,7 +5,8 @@ import useUrlPosition from "../../hooks/useUrlPosition";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
-import { width } from "@fortawesome/free-solid-svg-icons/fa0";
+import Spinner from "../../components/Spinner";
+// import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 function countryToFlag(country) {
   const codePoints = country
@@ -23,15 +24,20 @@ function TripForm() {
   const [countryCode, setCountryCode] = useState("");
   const [isCityFound, setIsCityFound] = useState();
   const [notes, setNotes] = useState("");
+  const [status, setStatus] = useState({ status: "idle", statusMessage: "" });
   const [date, setDate] = useState(new Date().toLocaleDateString("en-GB"));
   const { lat, lng } = useUrlPosition();
   const navigate = useNavigate();
+
+  const { status: statusType } = status;
+
+  console.log(statusType);
 
   async function handleSubmit(e) {
     e.preventDefault();
     const res = await fetch("http://localhost:9000/cities", {
       method: "POST",
-      header: {
+      headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify({
@@ -59,6 +65,7 @@ function TripForm() {
 
   useEffect(() => {
     if (!lat || !lng) return;
+    setStatus({ status: "loading", statusMessage: "" });
 
     async function fetchReverseGeolocation() {
       try {
@@ -81,8 +88,12 @@ function TripForm() {
         setCityName(city || locality);
         setCountryName(countryName);
         setCountryCode(countryCode);
+        setStatus({ status: "success", statusMessage: "" });
       } catch (e) {
-        console.log(`Error fetching location data: ${e.message}`);
+        setStatus({
+          status: "error",
+          statusMessage: `Error fetching location data: ${e.message}`,
+        });
       }
     }
     fetchReverseGeolocation();
@@ -105,6 +116,7 @@ function TripForm() {
       </p>
     );
 
+  if (statusType === "loading") return <Spinner />;
   return (
     <form className={styles.tripForm} onSubmit={handleSubmit}>
       <div>

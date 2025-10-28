@@ -6,8 +6,6 @@ import { CitiesContext } from "../context/CitiesProvider";
 function CityList() {
   const { cities } = useContext(CitiesContext);
 
-  if (!cities.length) return <div> Loading... </div>;
-
   return (
     <ul className={styles.cityList}>
       {cities.map((city) => (

@@ -9,6 +9,8 @@ function useGeolocation(defaultPositon = null) {
     useState(defaultPositon);
 
   function getPosition() {
+    setStatus({ status: "loading", statusMessage: "Location retrieved." });
+
     if (!navigator.geolocation)
       return setStatus({
         status: "error",
