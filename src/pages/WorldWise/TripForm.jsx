@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./worldwise.module.css";
 import useUrlPosition from "../../hooks/useUrlPosition";
@@ -6,6 +6,7 @@ import useUrlPosition from "../../hooks/useUrlPosition";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Spinner from "../../components/Spinner";
+import { CitiesContext } from "../../context/CitiesProvider";
 // import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 function countryToFlag(country) {
@@ -19,6 +20,7 @@ function countryToFlag(country) {
 }
 
 function TripForm() {
+  const { setCities } = useContext(CitiesContext);
   const [cityName, setCityName] = useState("");
   const [countryName, setCountryName] = useState("");
   const [countryCode, setCountryCode] = useState("");
@@ -52,13 +54,14 @@ function TripForm() {
       }),
     });
 
-    navigate("/worldwise/cities");
-
     if (!res.ok)
       throw new Error(`Failed to add city: ${res.status} ${res.statusText}`);
 
-    const data = await res.json();
-    console.log("City added:", data);
+    const city = await res.json();
+    setCities((prev) => [...prev, city]);
+    console.log("City added:", city);
+
+    navigate("/worldwise/cities");
   }
 
   useEffect(() => {

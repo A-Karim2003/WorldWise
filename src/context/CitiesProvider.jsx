@@ -31,7 +31,9 @@ export default function CitiesProvider({ children }) {
   }, []);
 
   return (
-    <CitiesContext value={{ cities, status, activeCityId, setActiveCityId }}>
+    <CitiesContext
+      value={{ cities, setCities, status, activeCityId, setActiveCityId }}
+    >
       {children}
     </CitiesContext>
   );

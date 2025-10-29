@@ -4,10 +4,8 @@ import { useContext } from "react";
 import { CitiesContext } from "../context/CitiesProvider";
 
 function CityList() {
-  const { cities, status } = useContext(CitiesContext);
+  const { cities } = useContext(CitiesContext);
 
-  //! Look into adding loading here
-  console.log(status);
   return (
     <ul className={styles.cityList}>
       {cities.map((city) => (
