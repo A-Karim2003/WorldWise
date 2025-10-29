@@ -50,7 +50,7 @@ function TripForm() {
           lat: lat,
           lng: lng,
         },
-        id: Math.floor(Math.random() * 1_000_000_0000),
+        id: Date.now().toString(),
       }),
     });
 

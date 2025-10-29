@@ -18,7 +18,8 @@ function City({ city }) {
     day: "numeric",
   });
 
-  const { activeCityId, setActiveCityId } = useContext(CitiesContext);
+  const { activeCityId, setActiveCityId, deleteCity } =
+    useContext(CitiesContext);
 
   const isActive = activeCityId === id;
 
@@ -35,7 +36,16 @@ function City({ city }) {
 
         <div>
           <span> ({formattedDate}) </span>
-          <button> X </button>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              deleteCity(id);
+            }}
+          >
+            {" "}
+            X{" "}
+          </button>
         </div>
       </li>
     </Link>

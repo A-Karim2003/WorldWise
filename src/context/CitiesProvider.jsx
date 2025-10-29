@@ -30,9 +30,38 @@ export default function CitiesProvider({ children }) {
     fetchData();
   }, []);
 
+  async function deleteCity(id) {
+    try {
+      if (!id) {
+        console.error("id is not defined");
+        return;
+      }
+
+      const res = await fetch(`http://localhost:9000/cities/${id}`, {
+        method: "DELETE",
+      });
+
+      if (!res.ok)
+        throw new Error(
+          `Failed to delete city: ${res.status} ${res.statusText}`
+        );
+
+      setCities((cities) => cities.filter((city) => city.id !== id));
+    } catch (error) {
+      console.log(error.messaage);
+    }
+  }
+
   return (
     <CitiesContext
-      value={{ cities, setCities, status, activeCityId, setActiveCityId }}
+      value={{
+        cities,
+        setCities,
+        status,
+        activeCityId,
+        setActiveCityId,
+        deleteCity,
+      }}
     >
       {children}
     </CitiesContext>
