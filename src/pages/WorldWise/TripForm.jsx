@@ -7,7 +7,6 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import Spinner from "../../components/Spinner";
 import { CitiesContext } from "../../context/CitiesProvider";
-// import { width } from "@fortawesome/free-solid-svg-icons/fa0";
 
 function countryToFlag(country) {
   const codePoints = country
@@ -20,7 +19,7 @@ function countryToFlag(country) {
 }
 
 function TripForm() {
-  const { setCities } = useContext(CitiesContext);
+  const { postNewCity } = useContext(CitiesContext);
   const [cityName, setCityName] = useState("");
   const [countryName, setCountryName] = useState("");
   const [countryCode, setCountryCode] = useState("");
@@ -33,35 +32,25 @@ function TripForm() {
 
   const { status: statusType } = status;
 
-  async function handleSubmit(e) {
+  //? create new city here
+  function handleSubmit(e) {
     e.preventDefault();
-    const res = await fetch("http://localhost:9000/cities", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
+    if (!cityName || !date) return;
+
+    const newCity = {
+      cityName: cityName,
+      country: countryName,
+      emoji: countryToFlag(countryCode),
+      date: date || new Date().toLocaleDateString("en-GB"),
+      notes: notes,
+      position: {
+        lat: lat,
+        lng: lng,
       },
-      body: JSON.stringify({
-        cityName: cityName,
-        country: countryName,
-        emoji: countryToFlag(countryCode),
-        date: date || new Date().toLocaleDateString("en-GB"),
-        notes: notes,
-        position: {
-          lat: lat,
-          lng: lng,
-        },
-        id: Date.now().toString(),
-      }),
-    });
+      id: Date.now().toString(),
+    };
 
-    if (!res.ok)
-      throw new Error(`Failed to add city: ${res.status} ${res.statusText}`);
-
-    const city = await res.json();
-    setCities((prev) => [...prev, city]);
-    console.log("City added:", city);
-
-    navigate("/worldwise/cities");
+    postNewCity(newCity);
   }
 
   useEffect(() => {

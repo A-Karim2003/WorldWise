@@ -32,21 +32,6 @@ function useGeolocation(defaultPositon = null) {
             status: "error",
             statusMessage: "User denied geolocation permission.",
           });
-        } else if (error.code === error.POSITION_UNAVAILABLE) {
-          setStatus({
-            status: "error",
-            statusMessage: "Position information is unavailable.",
-          });
-        } else if (error.code === error.TIMEOUT) {
-          setStatus({
-            status: "error",
-            statusMessage: "Request for location timed out.",
-          });
-        } else {
-          setStatus({
-            status: "error",
-            statusMessage: "An unknown error occurred.",
-          });
         }
       }
     );

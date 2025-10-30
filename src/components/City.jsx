@@ -12,12 +12,6 @@ function City({ city }) {
     position: { lat, lng },
   } = city;
 
-  const formattedDate = new Date(date).toLocaleDateString("en-GB", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-
   const { activeCityId, setActiveCityId, deleteCity } =
     useContext(CitiesContext);
 
@@ -35,7 +29,7 @@ function City({ city }) {
         </div>
 
         <div>
-          <span> ({formattedDate}) </span>
+          <span> ({String(date)}) </span>
           <button
             onClick={(e) => {
               e.preventDefault();

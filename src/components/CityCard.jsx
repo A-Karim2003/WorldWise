@@ -18,18 +18,9 @@ function CityCard() {
       return <p>Something went wrong.</p>;
   }
 
-  const [countryData] = cityData.cities.filter(
-    (city) => city.id === Number(id)
-  );
+  const [countryData] = cityData.cities.filter((city) => city.id === id);
 
   const { emoji: flag, country, date } = countryData;
-
-  const formattedDate = new Date(date).toLocaleDateString("en-GB", {
-    weekday: "long",
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
 
   return (
     <div className={styles.cityCard}>
@@ -42,7 +33,7 @@ function CityCard() {
 
       <div className={styles.section}>
         <h4 className={styles.label}>YOU WENT TO {country} ON</h4>
-        <p className={styles.value}>{formattedDate}</p>
+        <p className={styles.value}>{String(date)}</p>
       </div>
 
       <div className={styles.section}>

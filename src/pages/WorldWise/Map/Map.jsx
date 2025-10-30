@@ -1,5 +1,6 @@
 import styles from "../WorldWise.module.css";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 
 import {
   MapContainer,
@@ -15,7 +16,6 @@ import { CitiesContext } from "../../../context/CitiesProvider";
 import Button from "../../../components/AppLayout/Button";
 import useGeolocation from "../../../hooks/useGeolocation";
 import useUrlPosition from "../../../hooks/useUrlPosition";
-import Spinner from "../../../components/Spinner";
 
 function Map() {
   const { cities } = useContext(CitiesContext);
@@ -32,8 +32,7 @@ function Map() {
   const { lat, lng } = useUrlPosition();
 
   useEffect(() => {
-    if (!lat && !lng) return;
-    setMapPosition([lat, lng]);
+    if (lat && lng) return setMapPosition([lat, lng]);
   }, [lat, lng]);
 
   useEffect(() => {
@@ -63,6 +62,8 @@ function Map() {
       <Button className={styles.getLocationBtn} onClick={getPosition}>
         {status === "loading" ? "LOADING POSITION..." : "USE YOUR POSITION"}
       </Button>
+      <ToastContainer containerId={"successToast"} autoClose={2000} />
+      <ToastContainer containerId={"deleteToast"} autoClose={2000} />
     </div>
   );
 }
@@ -73,6 +74,11 @@ function ChangeMapCenter({ position }) {
   return null;
 }
 
+/*
+  This function returns the coordinates (lat, lng) 
+  of the clicked location within the map  and passes
+  it to the url
+*/
 function GetLocation() {
   const navigate = useNavigate();
   useMapEvents({

@@ -151,3 +151,20 @@
 .datePicker {
   width: 100%;
 }
+
+:global(.Toastify__toast-container--bottom-right) {
+  bottom: 1.5rem;
+  right: 2.5rem;
+}
+
+:global(.Toastify__toast.successToast) {
+  color: white;
+  font-size: 2rem;
+  background-color: var(--primary-color);
+}
+
+:global(.Toastify__toast.deleteToast) {
+  color: white;
+  font-size: 2rem;
+  background-color: var(--secondary-color);
+}

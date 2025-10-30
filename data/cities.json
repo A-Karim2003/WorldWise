@@ -1,3 +1,52 @@
 {
-  "cities": []
+  "cities": [
+    {
+      "id": "1761832395518",
+      "cityName": "Barnsley",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "30/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 53.55747328505804,
+        "lng": -1.4357738644303255
+      }
+    },
+    {
+      "id": "1761832398768",
+      "cityName": "Pont-Saint-Mard",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "30/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 49.48566395948427,
+        "lng": 3.2830561144358232
+      }
+    },
+    {
+      "id": "1761846439818",
+      "cityName": "Ripley",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "30/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 53.034607110319044,
+        "lng": -1.5645219108576658
+      }
+    },
+    {
+      "id": "1761848526467",
+      "cityName": "Llandrinio",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "30/10/2025",
+      "notes": "",
+      "position": {
+        "lat": 52.73293399096038,
+        "lng": -3.144536092303603
+      }
+    }
+  ]
 }
