@@ -21,15 +21,16 @@ function Map() {
   const { cities } = useContext(CitiesContext);
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
-  const {
-    status: geoStatus,
-    geolocationPosition,
-    getPosition,
-  } = useGeolocation();
-
-  const { status } = geoStatus;
+  const { geoStatus, geolocationPosition, getPosition } = useGeolocation();
 
   const { lat, lng } = useUrlPosition();
+
+  // Automatically fetch geolocation on mount
+  useEffect(() => {
+    getPosition();
+    // eslint-disable-next-line
+  }, []);
+  1;
 
   useEffect(() => {
     if (lat && lng) return setMapPosition([lat, lng]);
@@ -60,7 +61,7 @@ function Map() {
         })}
       </MapContainer>
       <Button className={styles.getLocationBtn} onClick={getPosition}>
-        {status === "loading" ? "LOADING POSITION..." : "USE YOUR POSITION"}
+        {geoStatus === "loading" ? "LOADING POSITION..." : "USE YOUR POSITION"}
       </Button>
       <ToastContainer containerId={"successToast"} autoClose={2000} />
       <ToastContainer containerId={"deleteToast"} autoClose={2000} />

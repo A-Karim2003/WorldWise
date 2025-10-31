@@ -2,9 +2,12 @@ import styles from "./cityList.module.css";
 import City from "./City";
 import { useContext } from "react";
 import { CitiesContext } from "../context/CitiesProvider";
+import Spinner from "./Spinner";
 
 function CityList() {
-  const { cities } = useContext(CitiesContext);
+  const { cities, status: contextStatus } = useContext(CitiesContext);
+
+  if (contextStatus === "loading") return <Spinner />;
 
   return (
     <ul className={styles.cityList}>

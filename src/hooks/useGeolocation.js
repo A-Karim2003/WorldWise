@@ -1,21 +1,15 @@
 import { useState } from "react";
+import { toast } from "react-toastify";
 
 function useGeolocation(defaultPositon = null) {
-  const [status, setStatus] = useState({
-    status: "idle",
-    statusMessage: "",
-  });
+  const [geoStatus, setGeoStatus] = useState("idle");
   const [geolocationPosition, setGeolocationPosition] =
     useState(defaultPositon);
 
   function getPosition() {
-    setStatus({ status: "loading", statusMessage: "Location retrieved." });
+    setGeoStatus("loading");
 
-    if (!navigator.geolocation)
-      return setStatus({
-        status: "error",
-        statusMessage: "Your browser does not support geolocation",
-      });
+    if (!navigator.geolocation) return setGeoStatus("error");
 
     navigator.geolocation.getCurrentPosition(
       (pos) => {
@@ -23,21 +17,25 @@ function useGeolocation(defaultPositon = null) {
           lat: pos.coords.latitude,
           lng: pos.coords.longitude,
         });
-        setStatus({ status: "success", statusMessage: "Location retrieved." });
+        setGeoStatus("success");
       },
       (error) => {
-        setStatus({ status: "error" });
+        console.error("Geolocation error:", error.message);
+
         if (error.code === error.PERMISSION_DENIED) {
-          setStatus({
-            status: "error",
-            statusMessage: "User denied geolocation permission.",
-          });
+          toast.error("Location permission denied");
+        } else if (error.code === error.POSITION_UNAVAILABLE) {
+          toast.error("Location unavailable. Try again later.");
+        } else if (error.code === error.TIMEOUT) {
+          toast.error("Location request timed out");
         }
+
+        setGeoStatus("error");
       }
     );
   }
 
-  return { status, geolocationPosition, getPosition };
+  return { geoStatus, geolocationPosition, getPosition };
 }
 
 export default useGeolocation;

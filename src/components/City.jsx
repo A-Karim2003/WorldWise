@@ -12,15 +12,15 @@ function City({ city }) {
     position: { lat, lng },
   } = city;
 
-  const { activeCityId, setActiveCityId, deleteCity } =
-    useContext(CitiesContext);
+  const { activeCityId, dispatch, deleteCity } = useContext(CitiesContext);
+  console.log(activeCityId);
 
   const isActive = activeCityId === id;
 
   return (
     <Link
       to={`${id}?lat=${lat}&lng=${lng}`}
-      onClick={() => setActiveCityId(id)}
+      onClick={() => dispatch({ type: "city/selected", payload: id })}
     >
       <li className={`${styles.city} ${isActive ? styles.active : ""}`}>
         <div>

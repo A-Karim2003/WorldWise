@@ -32,7 +32,6 @@ function TripForm() {
 
   const { status: statusType } = status;
 
-  //? create new city here
   function handleSubmit(e) {
     e.preventDefault();
     if (!cityName || !date) return;
@@ -53,6 +52,7 @@ function TripForm() {
     postNewCity(newCity);
   }
 
+  //* Fetches geolocation
   useEffect(() => {
     if (!lat || !lng) return;
     setStatus({ status: "loading", statusMessage: "" });
