@@ -1,5 +1,5 @@
 import styles from "../WorldWise.module.css";
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import {
@@ -19,6 +19,7 @@ import useUrlPosition from "../../../hooks/useUrlPosition";
 
 function Map() {
   const { cities } = useContext(CitiesContext);
+  const navigate = useNavigate();
   const [mapPosition, setMapPosition] = useState([51.505, -0.09]);
 
   const { geoStatus, geolocationPosition, getPosition } = useGeolocation();
@@ -55,7 +56,15 @@ function Map() {
           const { lat, lng } = city.position;
           return (
             <Marker key={city.id} position={[lat, lng]}>
-              <Popup>{city.notes}</Popup>
+              <Popup>
+                <div
+                  className={styles.popup}
+                  onClick={() => navigate(`UpdateNotesForm/${city.id}`)}
+                >
+                  <strong className={styles.cityName}>{city.cityName}</strong>
+                  <p className={styles.cityNotes}>{city.notes}</p>
+                </div>
+              </Popup>
             </Marker>
           );
         })}

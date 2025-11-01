@@ -8,6 +8,20 @@ function reducer(state, action) {
       return { ...state, cities: [...state.cities, action.payload] };
     case "cities/read":
       return { ...state, cities: action.payload };
+    case "cities/updated":
+      return {
+        ...state,
+        cities: state.cities.map((city) => {
+          if (city.id === action.payload.id) {
+            return {
+              ...city,
+              date: action.payload.date,
+              notes: action.payload.notes,
+            };
+          }
+          return city;
+        }),
+      };
     case "cities/deleted":
       return {
         ...state,
@@ -95,6 +109,24 @@ export default function CitiesProvider({ children }) {
     }
     fetchData();
   }, []);
+
+  //* UPDATE CITY
+  async function updateCity(id, updatedCity) {
+    const res = fetch(`http://localhost:9000/cities/${id}`, {
+      method: "PUT",
+      header: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedCity),
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to update item: ${res.status}`);
+    }
+
+    const updatedItem = await res.json();
+    console.log(updatedItem);
+  }
 
   //* DELETE CITY
   async function deleteCity(id) {

@@ -16,6 +16,7 @@ import CityCard from "./components/CityCard";
 /*==============Components============*/
 import CitiesProvider from "./context/CitiesProvider";
 import TripForm from "./pages/WorldWise/TripForm";
+import UpdateNotesForm from "./pages/WorldWise/UpdateNotesForm";
 
 /*============Routes to BG Map========*/
 const routeToBgMap = {
@@ -46,6 +47,7 @@ function App() {
             <Route path="countries" element={<CountryList />} />
             <Route path="cities/:id" element={<CityCard />} />
 
+            <Route path="UpdateNotesForm/:id" element={<UpdateNotesForm />} />
             <Route path="form" element={<TripForm />} />
           </Route>
 

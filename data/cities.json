@@ -1,51 +1,15 @@
 {
   "cities": [
     {
-      "id": "1761932572301",
-      "cityName": "Worthen with Shelve",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "31/10/2025",
+      "id": "1762036805020",
+      "cityName": "Le Buret",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "01/11/2025",
       "notes": "",
       "position": {
-        "lat": 52.62772704413814,
-        "lng": -2.9757957016443397
-      }
-    },
-    {
-      "id": "1761935369010",
-      "cityName": "Withington",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "31/10/2025",
-      "notes": "",
-      "position": {
-        "lat": 51.82219688213899,
-        "lng": -1.9819350759062537
-      }
-    },
-    {
-      "id": "1761936831640",
-      "cityName": "Boyle",
-      "country": "Ireland",
-      "emoji": "🇮🇪",
-      "date": "31/10/2025",
-      "notes": "",
-      "position": {
-        "lat": 53.7899519763426,
-        "lng": -7.940551828083568
-      }
-    },
-    {
-      "id": "1761936834486",
-      "cityName": "Kettleshulme",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "31/10/2025",
-      "notes": "",
-      "position": {
-        "lat": 53.34923569631084,
-        "lng": -2.0497595682281493
+        "lat": 47.93106519117577,
+        "lng": -0.505368620392821
       }
     }
   ]

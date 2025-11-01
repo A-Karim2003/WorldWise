@@ -13,7 +13,6 @@ function City({ city }) {
   } = city;
 
   const { activeCityId, dispatch, deleteCity } = useContext(CitiesContext);
-  console.log(activeCityId);
 
   const isActive = activeCityId === id;
 
