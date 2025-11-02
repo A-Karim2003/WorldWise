@@ -178,6 +178,16 @@
   font-size: 2rem;
   background-color: var(--secondary-color);
 }
+:global(.Toastify__toast.updateToast) {
+  color: white;
+  font-size: 2rem;
+  background-color: var(--primary-color);
+}
+:global(.Toastify__toast.errorToast) {
+  color: white;
+  font-size: 2rem;
+  background-color: red;
+}
 
 /* ------------UPDATE-TRIP-FORM------------- */
 

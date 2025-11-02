@@ -7,7 +7,7 @@ import DatePicker from "react-datepicker";
 import Button from "../../components/AppLayout/Button";
 
 function UpdateNotesForm() {
-  const { cities, dispatch } = useContext(CitiesContext);
+  const { cities, updateCity } = useContext(CitiesContext);
   const { id } = useParams();
 
   const [city] = cities.filter((city) => city.id === id);
@@ -17,7 +17,7 @@ function UpdateNotesForm() {
 
   /*
     used to sync date and notes state with the 
-    data stored in api
+    data stored in API
   */
   useEffect(() => {
     if (!city) return;
@@ -27,21 +27,21 @@ function UpdateNotesForm() {
 
   if (!city) return <Spinner />;
 
+  //* handles preparing update city functionility
+  function handleSubmit(e) {
+    e.preventDefault();
+
+    const updatedCity = {
+      ...city,
+      date: date,
+      notes: notes,
+    };
+
+    updateCity(updatedCity);
+  }
+
   return (
-    <form
-      className={styles.updateTripForm}
-      onSubmit={(e) => {
-        e.preventDefault();
-        dispatch({
-          type: "cities/updated",
-          payload: {
-            id: id,
-            date: date,
-            notes: notes,
-          },
-        });
-      }}
-    >
+    <form className={styles.updateTripForm} onSubmit={handleSubmit}>
       <div>
         <label htmlFor="date">When did you go to {city.cityName}?</label>
 

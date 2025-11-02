@@ -11,16 +11,9 @@ function reducer(state, action) {
     case "cities/updated":
       return {
         ...state,
-        cities: state.cities.map((city) => {
-          if (city.id === action.payload.id) {
-            return {
-              ...city,
-              date: action.payload.date,
-              notes: action.payload.notes,
-            };
-          }
-          return city;
-        }),
+        cities: state.cities.map((city) =>
+          city.id === action.payload.id ? action.payload : city
+        ),
       };
     case "cities/deleted":
       return {
@@ -37,6 +30,9 @@ function reducer(state, action) {
       return { ...state, status: "error" };
     case "city/selected":
       return { ...state, activeCityId: action.payload };
+    default:
+      console.error("Unknown action type:", action.type);
+      return state;
   }
 }
 
@@ -65,9 +61,14 @@ export default function CitiesProvider({ children }) {
         body: JSON.stringify(newCity),
       });
 
-      if (!res.ok)
+      if (!res.ok) {
+        toast("Failed to add city", {
+          containerId: "errorToast",
+          position: "bottom-right",
+          className: "errorToast",
+        });
         throw new Error(`Failed to add city: ${res.status} ${res.statusText}`);
-
+      }
       const city = await res.json();
       dispatch({ type: "cities/created", payload: city });
 
@@ -77,30 +78,33 @@ export default function CitiesProvider({ children }) {
         position: "bottom-right",
       });
       navigate("/worldwise/cities");
-
       dispatch({ type: "success" });
     } catch (error) {
       console.error(error.message);
-
       dispatch({ type: "error" });
     }
   }
 
-  //* READ CITIES
+  //* READ CITIES ✅
   useEffect(() => {
     dispatch({ type: "loading" });
     async function fetchData() {
       try {
         const res = await fetch("http://localhost:9000/cities");
 
-        if (!res.ok)
+        if (!res.ok) {
+          toast("Failed to fetch cities", {
+            containerId: "errorToast",
+            position: "bottom-right",
+            className: "errorToast",
+          });
           throw new Error(
             `Failed to fetch cities: ${res.status} ${res.statusText}`
           );
+        }
 
         const data = await res.json();
         dispatch({ type: "cities/read", payload: data });
-
         dispatch({ type: "success" });
       } catch (error) {
         dispatch({ type: "error" });
@@ -111,21 +115,40 @@ export default function CitiesProvider({ children }) {
   }, []);
 
   //* UPDATE CITY
-  async function updateCity(id, updatedCity) {
-    const res = fetch(`http://localhost:9000/cities/${id}`, {
-      method: "PUT",
-      header: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updatedCity),
-    });
+  async function updateCity(updatedCity) {
+    dispatch({ type: "loading" });
+    try {
+      const res = await fetch(
+        `http://localhost:9000/cities/${updatedCity.id}`,
+        {
+          method: "PUT",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(updatedCity),
+        }
+      );
 
-    if (!res.ok) {
-      throw new Error(`Failed to update item: ${res.status}`);
+      if (!res.ok) {
+        toast("Failed to update city", {
+          containerId: "errorToast",
+          position: "bottom-right",
+          className: "errorToast",
+        });
+        throw new Error(`Failed to update city: ${res.status}`);
+      }
+
+      const updatedItem = await res.json();
+      dispatch({ type: "cities/updated", payload: updatedItem });
+      toast("City updated", {
+        position: "bottom-right",
+        className: "updateToast",
+      });
+      dispatch({ type: "success" });
+    } catch (error) {
+      console.error(error.message);
+      dispatch({ type: "error" });
     }
-
-    const updatedItem = await res.json();
-    console.log(updatedItem);
   }
 
   //* DELETE CITY
@@ -142,10 +165,16 @@ export default function CitiesProvider({ children }) {
         method: "DELETE",
       });
 
-      if (!res.ok)
+      if (!res.ok) {
+        toast("Failed to delete city", {
+          containerId: "errorToast",
+          position: "bottom-right",
+          className: "errorToast",
+        });
         throw new Error(
           `Failed to delete city: ${res.status} ${res.statusText}`
         );
+      }
       dispatch({ type: "cities/deleted", payload: id });
 
       toast("City deleted", {
@@ -167,9 +196,9 @@ export default function CitiesProvider({ children }) {
         cities,
         status,
         activeCityId,
-        dispatch,
-        deleteCity,
         postNewCity,
+        updateCity,
+        deleteCity,
       }}
     >
       {children}

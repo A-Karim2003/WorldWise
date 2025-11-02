@@ -1,15 +1,51 @@
 {
   "cities": [
     {
-      "id": "1762036805020",
-      "cityName": "Le Buret",
+      "id": "1762115475625",
+      "cityName": "Saint-Ovin",
       "country": "France",
       "emoji": "🇫🇷",
-      "date": "01/11/2025",
+      "date": "02/11/2025",
+      "notes": "went sky diving, it was a great trip!!!\ntesting updating feature...\n\nStill testing it works\n",
+      "position": {
+        "lat": 48.67645370777654,
+        "lng": -1.2744140625000002
+      }
+    },
+    {
+      "id": "1762115487639",
+      "cityName": "Bristol",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "12/02/2025",
+      "notes": "Visited Bristol",
+      "position": {
+        "lat": 51.44715971577121,
+        "lng": -2.5598129531146645
+      }
+    },
+    {
+      "id": "1762123311087",
+      "cityName": "Bastogne",
+      "country": "Belgium",
+      "emoji": "🇧🇪",
+      "date": "02/11/2025",
+      "notes": "visited",
+      "position": {
+        "lat": 50.04978494155075,
+        "lng": 5.713601348664842
+      }
+    },
+    {
+      "id": "1762124125744",
+      "cityName": "Charly-sur-Marne",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "02/11/2025",
       "notes": "",
       "position": {
-        "lat": 47.93106519117577,
-        "lng": -0.505368620392821
+        "lat": 49.005379225647,
+        "lng": 3.2996417936686395
       }
     }
   ]

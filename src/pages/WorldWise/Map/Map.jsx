@@ -74,6 +74,9 @@ function Map() {
       </Button>
       <ToastContainer containerId={"successToast"} autoClose={2000} />
       <ToastContainer containerId={"deleteToast"} autoClose={2000} />
+      <ToastContainer containerId={"errorToast"} autoClose={2000} />
+      {/* toast for everything else */}
+      <ToastContainer autoClose={2000} />
     </div>
   );
 }
