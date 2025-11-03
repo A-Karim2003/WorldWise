@@ -18,34 +18,22 @@
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
       "date": "12/02/2025",
-      "notes": "Visited Bristol",
+      "notes": "Visited Bristol. trip was great!",
       "position": {
         "lat": 51.44715971577121,
         "lng": -2.5598129531146645
       }
     },
     {
-      "id": "1762123311087",
-      "cityName": "Bastogne",
-      "country": "Belgium",
-      "emoji": "🇧🇪",
-      "date": "02/11/2025",
-      "notes": "visited",
-      "position": {
-        "lat": 50.04978494155075,
-        "lng": 5.713601348664842
-      }
-    },
-    {
-      "id": "1762124125744",
-      "cityName": "Charly-sur-Marne",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "02/11/2025",
+      "id": "1762157648486",
+      "cityName": "East Calder",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "03/11/2025",
       "notes": "",
       "position": {
-        "lat": 49.005379225647,
-        "lng": 3.2996417936686395
+        "lat": 55.777584396506654,
+        "lng": -3.495492559004219
       }
     }
   ]

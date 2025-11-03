@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import styles from "./worldwise.module.css";
 import { CitiesContext } from "../../context/CitiesProvider";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Spinner from "../../components/Spinner";
 import DatePicker from "react-datepicker";
 import Button from "../../components/AppLayout/Button";
@@ -9,6 +9,7 @@ import Button from "../../components/AppLayout/Button";
 function UpdateNotesForm() {
   const { cities, updateCity } = useContext(CitiesContext);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [city] = cities.filter((city) => city.id === id);
 
@@ -38,6 +39,7 @@ function UpdateNotesForm() {
     };
 
     updateCity(updatedCity);
+    navigate("/worldwise/cities");
   }
 
   return (
