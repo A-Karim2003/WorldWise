@@ -32,7 +32,6 @@ function City({ city }) {
           <button
             onClick={(e) => {
               e.preventDefault();
-              e.stopPropagation();
               deleteCity(id);
             }}
           >

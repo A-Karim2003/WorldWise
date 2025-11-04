@@ -5,7 +5,11 @@ import { toast } from "react-toastify";
 function reducer(state, action) {
   switch (action.type) {
     case "cities/created":
-      return { ...state, cities: [...state.cities, action.payload] };
+      return {
+        ...state,
+        cities: [...state.cities, action.payload],
+        activeCityId: action.payload.id,
+      };
     case "cities/read":
       return { ...state, cities: action.payload };
     case "cities/updated":
@@ -20,8 +24,6 @@ function reducer(state, action) {
         ...state,
         cities: state.cities.filter((city) => city.id !== action.payload),
       };
-    case "set/activeCity":
-      break;
     case "loading":
       return { ...state, status: "loading" };
     case "success":
@@ -199,6 +201,7 @@ export default function CitiesProvider({ children }) {
         postNewCity,
         updateCity,
         deleteCity,
+        dispatch,
       }}
     >
       {children}

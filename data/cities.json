@@ -13,27 +13,99 @@
       }
     },
     {
-      "id": "1762115487639",
-      "cityName": "Bristol",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "12/02/2025",
-      "notes": "Visited Bristol. trip was great!",
-      "position": {
-        "lat": 51.44715971577121,
-        "lng": -2.5598129531146645
-      }
-    },
-    {
-      "id": "1762157648486",
-      "cityName": "East Calder",
+      "id": "1762176570489",
+      "cityName": "Caterham",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "emoji": "🇬🇧",
       "date": "03/11/2025",
       "notes": "",
       "position": {
-        "lat": 55.777584396506654,
-        "lng": -3.495492559004219
+        "lat": 51.27783477190864,
+        "lng": -0.07573901492512693
+      }
+    },
+    {
+      "id": "1762177256903",
+      "cityName": "Luche-Pringe",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 47.68743678931713,
+        "lng": 0.16985216253268656
+      }
+    },
+    {
+      "id": "1762177396986",
+      "cityName": "Middle",
+      "country": "Isle of Man",
+      "emoji": "🇮🇲",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 54.17529672404642,
+        "lng": -4.491457573929832
+      }
+    },
+    {
+      "id": "1762177640051",
+      "cityName": "Gemeente Borger-Odoorn",
+      "country": "Netherlands (Kingdom of the)",
+      "emoji": "🇳🇱",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 52.87702074818965,
+        "lng": 6.743750605123987
+      }
+    },
+    {
+      "id": "1762177676269",
+      "cityName": "Faaborg-Midtfyn Kommune",
+      "country": "Denmark",
+      "emoji": "🇩🇰",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 55.25256669739317,
+        "lng": 10.38209545068211
+      }
+    },
+    {
+      "id": "1762190763285",
+      "cityName": "Bonsall",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 53.120403661196015,
+        "lng": -1.5820271312116896
+      }
+    },
+    {
+      "id": "1762190767865",
+      "cityName": "Fort William",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 56.745856176461075,
+        "lng": -4.700661822294403
+      }
+    },
+    {
+      "id": "1762191348866",
+      "cityName": "Vienna",
+      "country": "Austria",
+      "emoji": "🇦🇹",
+      "date": "03/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 48.204540845239244,
+        "lng": 16.37374877929688
       }
     }
   ]
