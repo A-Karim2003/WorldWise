@@ -80,13 +80,13 @@ git clone https://github.com/A_Karim2003/worldwise.git
 cd worldwise
 ```
 
-2. **Install dependencies**
+2.**Install dependencies**
 
 ```bash
 npm install
 ```
 
-3. **Start the JSON Server (backend)**
+3.**Start the JSON Server (backend)**
 
 ```bash
 npm run server
@@ -94,7 +94,7 @@ npm run server
 
 This will start the API server on `http://localhost:9000`
 
-4. **Start the development server**
+4.**Start the development server**
 
 ```bash
 npm run dev
@@ -113,7 +113,7 @@ The app will open at `http://localhost:5173` (or another port if 5173 is busy)
 
 ## 📁 Project Structure
 
-```
+```bash
 worldwise/
 ├── data/                          # JSON Server database
 ├── node_modules/                  # Dependencies
