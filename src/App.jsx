@@ -17,6 +17,7 @@ import CityCard from "./components/CityCard";
 import CitiesProvider from "./context/CitiesProvider";
 import TripForm from "./pages/WorldWise/TripForm";
 import UpdateNotesForm from "./pages/WorldWise/UpdateNotesForm";
+import { AuthProvider } from "./context/AuthProvider";
 
 /*============Routes to BG Map========*/
 const routeToBgMap = {
@@ -32,28 +33,30 @@ function App() {
 
   return (
     <div className={`app ${bgClass}`}>
-      <CitiesProvider>
-        <Routes>
-          <Route element={<AppLayout />}>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/product" element={<Product />} />
-          </Route>
-          <Route path="/worldwise" element={<WorldWise />}>
-            <Route index element={<Navigate replace to="cities" />} />
+      <AuthProvider>
+        <CitiesProvider>
+          <Routes>
+            <Route element={<AppLayout />}>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/product" element={<Product />} />
+            </Route>
+            <Route path="/worldwise" element={<WorldWise />}>
+              <Route index element={<Navigate replace to="cities" />} />
 
-            <Route path="cities" element={<CityList />} />
-            <Route path="countries" element={<CountryList />} />
-            <Route path="cities/:id" element={<CityCard />} />
+              <Route path="cities" element={<CityList />} />
+              <Route path="countries" element={<CountryList />} />
+              <Route path="cities/:id" element={<CityCard />} />
 
-            <Route path="UpdateNotesForm/:id" element={<UpdateNotesForm />} />
-            <Route path="form" element={<TripForm />} />
-          </Route>
+              <Route path="UpdateNotesForm/:id" element={<UpdateNotesForm />} />
+              <Route path="form" element={<TripForm />} />
+            </Route>
 
-          <Route path="*" element={<PageNotFound />} />
-        </Routes>
-      </CitiesProvider>
+            <Route path="*" element={<PageNotFound />} />
+          </Routes>
+        </CitiesProvider>
+      </AuthProvider>
     </div>
   );
 }

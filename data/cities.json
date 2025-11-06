@@ -49,18 +49,6 @@
       }
     },
     {
-      "id": "1762177640051",
-      "cityName": "Gemeente Borger-Odoorn",
-      "country": "Netherlands (Kingdom of the)",
-      "emoji": "🇳🇱",
-      "date": "03/11/2025",
-      "notes": "",
-      "position": {
-        "lat": 52.87702074818965,
-        "lng": 6.743750605123987
-      }
-    },
-    {
       "id": "1762177676269",
       "cityName": "Faaborg-Midtfyn Kommune",
       "country": "Denmark",
@@ -106,6 +94,18 @@
       "position": {
         "lat": 48.204540845239244,
         "lng": 16.37374877929688
+      }
+    },
+    {
+      "id": "1762368298026",
+      "cityName": "Caterham",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "emoji": "🇬🇧",
+      "date": "05/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 51.2793235108089,
+        "lng": -0.07678714459874005
       }
     }
   ]

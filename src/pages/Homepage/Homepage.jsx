@@ -1,5 +1,6 @@
 import styles from "./homepage.module.css";
 import Button from "../../components/AppLayout/Button";
+import { Link } from "react-router-dom";
 
 function Homepage() {
   return (
@@ -13,7 +14,9 @@ function Homepage() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world.
         </p>
-        <Button> START TRACKING NOW </Button>
+        <Link to={"/login"}>
+          <Button> START TRACKING NOW </Button>
+        </Link>
       </div>
     </div>
   );
