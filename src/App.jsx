@@ -18,6 +18,7 @@ import CitiesProvider from "./context/CitiesProvider";
 import TripForm from "./pages/WorldWise/TripForm";
 import UpdateNotesForm from "./pages/WorldWise/UpdateNotesForm";
 import { AuthProvider } from "./context/AuthProvider";
+import ProtectedRoutes from "./pages/ProtectedRoutes";
 
 /*============Routes to BG Map========*/
 const routeToBgMap = {
@@ -42,7 +43,14 @@ function App() {
               <Route path="/pricing" element={<Pricing />} />
               <Route path="/product" element={<Product />} />
             </Route>
-            <Route path="/worldwise" element={<WorldWise />}>
+            <Route
+              path="/worldwise"
+              element={
+                <ProtectedRoutes>
+                  <WorldWise />
+                </ProtectedRoutes>
+              }
+            >
               <Route index element={<Navigate replace to="cities" />} />
 
               <Route path="cities" element={<CityList />} />
