@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "1762115475625",
-      "cityName": "Saint-Ovin",
-      "country": "France",
-      "emoji": "🇫🇷",
-      "date": "02/11/2025",
-      "notes": "went sky diving, it was a great trip!!!\ntesting updating feature...\n\nStill testing it works\n",
-      "position": {
-        "lat": 48.67645370777654,
-        "lng": -1.2744140625000002
-      }
-    },
-    {
       "id": "1762176570489",
       "cityName": "Caterham",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
