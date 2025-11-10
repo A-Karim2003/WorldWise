@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 
 function useGeolocation(defaultPositon = null) {
@@ -6,7 +6,7 @@ function useGeolocation(defaultPositon = null) {
   const [geolocationPosition, setGeolocationPosition] =
     useState(defaultPositon);
 
-  function getPosition() {
+  const getPosition = useCallback(() => {
     setGeoStatus("loading");
 
     if (!navigator.geolocation) return setGeoStatus("error");
@@ -33,7 +33,7 @@ function useGeolocation(defaultPositon = null) {
         setGeoStatus("error");
       }
     );
-  }
+  }, []);
 
   return { geoStatus, geolocationPosition, getPosition };
 }

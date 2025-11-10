@@ -1,18 +1,6 @@
 {
   "cities": [
     {
-      "id": "1762176570489",
-      "cityName": "Caterham",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "emoji": "🇬🇧",
-      "date": "03/11/2025",
-      "notes": "",
-      "position": {
-        "lat": 51.27783477190864,
-        "lng": -0.07573901492512693
-      }
-    },
-    {
       "id": "1762177256903",
       "cityName": "Luche-Pringe",
       "country": "France",
@@ -94,6 +82,30 @@
       "position": {
         "lat": 51.2793235108089,
         "lng": -0.07678714459874005
+      }
+    },
+    {
+      "id": "1762643550133",
+      "cityName": "Le Meix-Tiercelin",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "08/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 48.64739954126061,
+        "lng": 4.416567443937872
+      }
+    },
+    {
+      "id": "1762645230677",
+      "cityName": "Onlay",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "08/11/2025",
+      "notes": "",
+      "position": {
+        "lat": 46.965255714488016,
+        "lng": 3.889167996820793
       }
     }
   ]

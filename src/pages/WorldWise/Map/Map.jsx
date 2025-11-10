@@ -1,5 +1,5 @@
 import styles from "../WorldWise.module.css";
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import {
@@ -29,9 +29,7 @@ function Map() {
   // Automatically fetch geolocation on mount
   useEffect(() => {
     getPosition();
-    // eslint-disable-next-line
-  }, []);
-  1;
+  }, [getPosition]);
 
   useEffect(() => {
     if (lat && lng) return setMapPosition([lat, lng]);
