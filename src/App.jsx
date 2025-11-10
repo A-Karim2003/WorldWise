@@ -19,6 +19,7 @@ import TripForm from "./pages/WorldWise/TripForm";
 import UpdateNotesForm from "./pages/WorldWise/UpdateNotesForm";
 import { AuthProvider } from "./context/AuthProvider";
 import ProtectedRoutes from "./pages/ProtectedRoutes";
+import FullPageSpinner from "./components/FullPageSpinner";
 
 /*===============Lazy loaded Components===============*/
 const WorldWise = lazy(() => import("./pages/WorldWise/worldwise"));
@@ -33,19 +34,6 @@ const routeToBgMap = {
   "/login": "loginBg",
 };
 
-/* Original Build:
-  dist/index.html                   0.78 kB │ gzip:   0.47 kB
-  dist/assets/icon-C76IL8ru.png    20.20 kB
-  dist/assets/index-BBMP8nf6.css   32.07 kB │ gzip:   5.37 kB
-  dist/assets/index-1T7EX1Fc.js   670.78 kB │ gzip: 199.58 kB
-
-  New Build:
-  dist/index.html                      0.78 kB │ gzip:   0.46 kB
-  dist/assets/icon-C76IL8ru.png       20.20 kB
-  dist/assets/index-BhdhmsBS.css      32.07 kB │ gzip:   5.36 kB
-  dist/assets/WorldWise-teLISQH2.js  157.35 kB │ gzip:  46.31 kB
-  dist/assets/index-GRiOttaP.js      513.36 kB │ gzip: 153.31 kB
-*/
 function App() {
   const location = useLocation();
   const bgClass = routeToBgMap[location.pathname] || "default";
@@ -58,14 +46,28 @@ function App() {
             <Route element={<AppLayout />}>
               <Route path="/" element={<Homepage />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/pricing" element={<Pricing />} />
-              <Route path="/product" element={<Product />} />
+              <Route
+                path="/pricing"
+                element={
+                  <Suspense fallback={<FullPageSpinner />}>
+                    <Pricing />
+                  </Suspense>
+                }
+              />
+              <Route
+                path="/product"
+                element={
+                  <Suspense fallback={<FullPageSpinner />}>
+                    <Product />
+                  </Suspense>
+                }
+              />
             </Route>
             <Route
               path="/worldwise"
               element={
                 <ProtectedRoutes>
-                  <Suspense fallback={<h1>LOADING!!!!!</h1>}>
+                  <Suspense fallback={<FullPageSpinner />}>
                     <WorldWise />
                   </Suspense>
                 </ProtectedRoutes>
