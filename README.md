@@ -2,6 +2,8 @@
 
 A modern, interactive web application that allows users to track and document their travel experiences around the world. Built with React and featuring an interactive map interface, WorldWise helps you keep a visual journal of all the places you've visited.
 
+![Worldwise](image.png)
+
 ## ✨ Features
 
 ### 🗺️ Interactive Map
